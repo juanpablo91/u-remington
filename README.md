@@ -1,2 +1,5 @@
 # u-remington
-talleres en grupo,codigo etc.
+talleres en grupo,codigo 
+
+
+ #editiop etc.
