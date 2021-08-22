@@ -1,0 +1,82 @@
+Proceso findvocal
+	
+	//@ author Juan pablo Gonzalez 
+	// U.remington
+	//Busqueda de vocales y contador
+	
+	//variable`s for nav
+	Definir  option Como entero;
+	option<-1;
+	
+	//variable`s for program main
+	Definir result como logico; //declaration
+	Definir word,aux,vowels como cadena; //""
+	vowels<-"aeiouáéíóúü";  //initialization
+	Definir numberVow,numberW,i,j,aux2 como entero; //""
+	
+	Escribir "--------contador de vocales-------------------";
+	
+	//cycle repaet-until for repeat the program, according to user
+	repetir 
+		
+		// to write nav and option`s
+		Escribir "";
+		Escribir "1.Metodo con for(ciclo para)";
+		Escribir "0 Para Salir";
+		Leer option;
+		
+		numberW<-0;
+		numberVow<-0;
+
+		result<-falso;
+		
+		//the option`s is separated for this conditional if
+		si option=1 Entonces
+			
+			//to write sub-nav
+			Escribir "";
+			Escribir "ingrese la palabra";
+			Leer word;
+			aux<-word; //this variables, will help us later(print the sentence orignal)
+	
+			word<-Minusculas(word);
+			
+			//cycle for-nested to go the througg the word or sentence and look at for the vowels
+			Para i<-0 Hasta Longitud(word)-1 Con Paso 1  Hacer
+				
+				para j<-0 hasta Longitud(vowels)-1 con paso 1 Hacer
+					
+					si Subcadena(word,i,i)=Subcadena(vowels,j,j) Entonces
+						numberVow<-numberVow+1; //in this case,a vowel was already found
+						
+					FinSi
+					
+				FinPara
+				
+				//this sentence, is to count the words of the word
+				numberW<-numberW+1;
+				
+			FinPara
+			
+			//to know if there are more vowels or consonants,subtract  the number of letters by vowels was found
+			aux2<-numberW-numberVow;
+			
+			
+			// if there are more vowels than letters, return true in to variable result
+			si aux2<numberVow Entonces
+				result<-Verdadero;
+			FinSi
+			
+			Escribir "";
+			Escribir "La frase ",aux," tiene ",numberVow," VOCALES";
+			escribir "El resultado es :",result;
+			
+		//if the user chosses exit
+		SiNo
+			Escribir "saliendo...";
+		FinSi
+
+	Hasta Que option=0
+	
+	
+FinProceso
